@@ -1,7 +1,6 @@
 from email.policy import default
 from django.db import models
-from django.core.validators import MinLengthValidator
-
+from django.core.exceptions import ValidationError
 # Create your models here.
 class Cashbook(models.Model):
     title = models.CharField(max_length=200)
@@ -13,3 +12,9 @@ class Cashbook(models.Model):
 
     def __str__(self):
         return self.title
+
+    def clean(self):
+        title = self.title
+        if title == "":
+            raise ValidationError("글을 작성해주세요")
+        return super(Cashbook,self).clean()

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CashbookForm
 from django.utils import timezone
 from .models import Cashbook
+
 # Create your views here.
 
 
@@ -16,6 +17,12 @@ def write(request):
             form.pub_date = timezone.now()
             form.save()
             return redirect('main')
+
+        else:
+            context = {
+                'form':form,
+            }
+            return render(request, 'write.html', context)
     else:
         form = CashbookForm
         return render(request, 'write.html', {'form':form})
