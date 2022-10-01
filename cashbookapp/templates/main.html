@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>멋사 과제입니당</title>
-    <link href="wow.css" rel="stylesheet">
+    <link href="{% static 'css/wow.css' %}" rel="stylesheet">
 </head>
 <body>
 <div>
@@ -66,10 +66,10 @@
         </div>
 
 </div>    
-<script src="hi.js"></script>
+<script src="{% static 'js/hi.js' %}"></script>
 </body>
 <footer></footer>
-<audio src='audio/LP1607180062_이혜린_Tongtong.wav' controls loop>
+<audio src="{% static 'audio/audio_LP1607180062_이혜린_Tongtong.mp3' %}" controls loop>
     해당 브라우저는 audio 태그를 지원하지 않습니다.
 </audio>
 
