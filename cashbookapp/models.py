@@ -1,13 +1,14 @@
+import datetime
 from email.policy import default
-from xmlrpc.client import FastUnmarshaller
 from django.db import models
 from django.core.exceptions import ValidationError
-import datetime
+
 # Create your models here.
 class Cashbook(models.Model):
     title = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('data published', default=datetime.datetime.now, editable=False)
     content = models.TextField()
+    detail = models.TextField()
+    pub_date = models.DateTimeField('date published', default=datetime.datetime.now, editable=False)
     image = models.ImageField(upload_to = 'images/', blank =True, default='')
     likes = models.PositiveIntegerField(default=0, verbose_name='추천수')
     clicks = models.PositiveIntegerField(default=0, verbose_name='조회수') 

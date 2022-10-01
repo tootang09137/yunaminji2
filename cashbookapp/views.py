@@ -5,7 +5,6 @@ from .models import Cashbook
 
 # Create your views here.
 
-
 def main(request):
     return render(request, 'main.html')
 
