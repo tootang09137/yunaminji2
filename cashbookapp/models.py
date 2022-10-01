@@ -1,10 +1,12 @@
 from email.policy import default
+from xmlrpc.client import FastUnmarshaller
 from django.db import models
 from django.core.exceptions import ValidationError
+import datetime
 # Create your models here.
 class Cashbook(models.Model):
     title = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('data published')
+    pub_date = models.DateTimeField('data published', default=datetime.datetime.now, editable=False)
     content = models.TextField()
     image = models.ImageField(upload_to = 'images/', blank =True, default='')
     likes = models.PositiveIntegerField(default=0, verbose_name='추천수')
@@ -18,3 +20,4 @@ class Cashbook(models.Model):
         if title == "":
             raise ValidationError("글을 작성해주세요")
         return super(Cashbook,self).clean()
+

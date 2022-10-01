@@ -6,7 +6,8 @@ from django.core.exceptions import ValidationError
 class CashbookForm(forms.ModelForm):
     class Meta:
         model = Cashbook
-        fields = ['title', 'content', 'image',]
+        fields = ['title', 'image', 'content']
+
 
     def __init__(self, *args, **kwargs):
         super(CashbookForm, self).__init__(*args, **kwargs)

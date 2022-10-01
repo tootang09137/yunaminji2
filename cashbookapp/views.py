@@ -46,7 +46,7 @@ def edit(request, id):
 
     else:
         form = CashbookForm(instance=cashbooks)
-        return render(request, 'edit.html', {'form':form})
+        return render(request, 'edit.html', {'form':form, 'cashbooks':cashbooks})
 
 def delete(request, id):
     cashbooks = get_object_or_404(Cashbook, id=id)
