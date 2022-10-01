@@ -9,13 +9,12 @@ html,body{
     font-family: 'HoengseongHanu';
     margin: 0;
     display:column;
-    overflow-y:scroll;
 }
 
 .sidebar{
     background: black;
     width: 10%;
-    height: 250px; 
+    height: 200px; 
     position: sticky;
     top: 0;
     float: right;

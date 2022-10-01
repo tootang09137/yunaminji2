@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/yuna/Desktop/endgame/cr-error/myvenv"
+VIRTUAL_ENV="/Users/yuna/Desktop/최종최종/whydiesticky/myvenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

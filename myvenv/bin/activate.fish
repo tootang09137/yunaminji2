@@ -30,7 +30,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/yuna/Desktop/endgame/cr-error/myvenv"
+set -gx VIRTUAL_ENV "/Users/yuna/Desktop/최종최종/whydiesticky/myvenv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
