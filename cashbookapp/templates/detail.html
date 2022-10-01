@@ -12,6 +12,7 @@
     <h3>제목: {{cashbooks.title}}</h3>
     <p>작성일: {{cashbooks.pub_date}}</p>
     <p>지출내역: {{cashbooks.content}}</p>
+    <p>지출내역: {{cashbooks.detail}}</p>
     {% if cashbooks.image %} 
         <image src="{{ cashbooks.image.url }}" width ="250" height = "250" alt = "image">
     {% endif %} 
