@@ -21,3 +21,9 @@ class Cashbook(models.Model):
             raise ValidationError("글을 작성해주세요")
         return super(Cashbook,self).clean()
 
+    def clean_content(self):
+        instance = getattr(self, 'instance', None)
+        if instance and instance.pk:
+            return instance.content
+        else:
+            return self.cleaned_data['content']
