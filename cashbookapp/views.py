@@ -25,7 +25,7 @@ def write(request):
     else:
         form = CashbookForm
         return render(request, 'write.html', {'form':form})
-
+        
 def read(request):
     cashbooks = Cashbook.objects
     return render(request, 'read.html', {'cashbooks':cashbooks})
