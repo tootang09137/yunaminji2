@@ -30,7 +30,11 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
+<<<<<<< HEAD
 set -gx VIRTUAL_ENV "/Users/yuna/Desktop/살려주세요/10-82/myvenv"
+=======
+set -gx VIRTUAL_ENV "/Users/yuna/Desktop/멋사과제_최종/10-8/myvenv"
+>>>>>>> remotes/origin/main
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
