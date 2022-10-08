@@ -1,24 +1,15 @@
-.hide{
-    display: none;
-}
-
-.failure-message,
-.mismatch-message,
-.misnumber-message {
-    color: red;
-}
-
-.success-message,
-.match-message{
-    color: blue;
-}
-
-.style0,
-.style1{
-    color: grey;
-}
-
-h1{
-    color:blue;
+.header {
+    height: 80px;
+    background:rgb(255,203,203);
     text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index:3;
+}
+
+footer {
+    background: #333;
+    height: 200px;
+    margin: 0;
+    padding: 0;
 }
