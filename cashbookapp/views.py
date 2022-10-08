@@ -2,29 +2,30 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CashbookForm
 from django.utils import timezone
 from .models import Cashbook
-
+from django.contrib.auth.forms import AuthenticationForm
+from account.models import CustomUser
+from django.contrib.auth import authenticate
 # Create your views here.
 
 def main(request):
     return render(request, 'main.html')
 
 def write(request):
-    if request.method == 'POST':
-        form = CashbookForm(request.POST, request.FILES)
+    user = request.user
+    user_id = str(user.id)
+    if (user.is_authenticated == True) and (user_id == id):
         if form.is_valid():
             form = form.save(commit=False)
             form.pub_date = timezone.now()
             form.save()
-            return redirect('main')
-
-        else:
-            context = {
-                'form':form,
-            }
-            return render(request, 'write.html', context)
+            return render(request, 'write.html')
     else:
-        form = CashbookForm
-        return render(request, 'write.html', {'form':form})
+        form = AuthenticationForm()
+        context = {
+            'form':form
+        }
+    return render(request, 'login.html', context)
+
         
 def read(request):
     cashbooks = Cashbook.objects
