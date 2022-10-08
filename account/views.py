@@ -13,9 +13,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             auth.login(request, user)
-            return redirect('login')
-        else:
-            return render(request, 'signup.html', {'form':form})
+            return redirect('mypage', user.id)
     else:
         form = CustomUserCreationForm()
         return render(request, 'signup.html', {'form':form})

@@ -11,20 +11,22 @@ def main(request):
     return render(request, 'main.html')
 
 def write(request):
-    user = request.user
-    user_id = str(user.id)
-    if (user.is_authenticated == True) and (user_id == id):
+    if request.method == 'POST':
+        form = CashbookForm(request.POST, request.FILES)
         if form.is_valid():
             form = form.save(commit=False)
             form.pub_date = timezone.now()
             form.save()
-            return render(request, 'write.html')
+            return redirect('main')
+
+        else:
+            context = {
+                'form':form,
+            }
+            return render(request, 'write.html', context)
     else:
-        form = AuthenticationForm()
-        context = {
-            'form':form
-        }
-    return render(request, 'login.html', context)
+        form = CashbookForm
+        return render(request, 'write.html', {'form':form})
 
         
 def read(request):
