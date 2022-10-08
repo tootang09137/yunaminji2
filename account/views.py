@@ -75,3 +75,6 @@ def user_change(request):
         'form':form,
     }
     return render(request, 'user_change.html', context)
+
+def signup_yuna(request):
+    return render(request, 'accout/signup_yuna.html')

@@ -1,4 +1,5 @@
 import datetime
+from email import contentmanager
 from email.policy import default
 from django.db import models
 from django.core.exceptions import ValidationError
@@ -28,3 +29,6 @@ class Cashbook(models.Model):
             return instance.content
         else:
             return self.cleaned_data['content']
+
+class post(models.Model):
+    contentmanager
