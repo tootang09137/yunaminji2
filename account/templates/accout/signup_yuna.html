@@ -6,41 +6,209 @@
    <link rel="stylesheet" href= "{% static 'account/static/css/signup.css' %}">
     <meta charset="UTF-8">
     <title>프론트엔드 회원가입</title>
+    <style>
+        .hide{
+    display: none;
+}
+
+.failure-message,
+.mismatch-message,
+.misnumber-message {
+    color: red;
+}
+
+.success-message,
+.match-message{
+    color: blue;
+}
+
+.style0,
+.style1{
+    color: grey;
+}
+
+h1{
+    color:black;
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 1.5em;
+    padding-top: 1em;
+}
+
+fieldset{
+    margin: 2%;
+    border: 0;
+}
+
+form{
+    background-color: whitesmoke;
+    font-size: 20px;
+    width: 55%;
+    margin: auto;
+    height: 30em;
+    line-height:150%;
+    padding-top: 10px;
+}
+
+body{
+    background-color: rgb(255,203,203);
+    overflow: hidden;
+    
+}
+
+text{
+    margin: 10%;
+}
+.sidebar{
+    font-family: 'HoengseongHanu';
+    background: black;
+    width: 10%;
+    height: 200px; 
+    top: 0;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 12px;
+    text-align: center;
+    padding-top:10px;
+}
+
+a{
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+div{
+    margin: 0;
+    padding:0;
+}
+    </style>
 </head>
 <body>
     <h1>회원가입</h1>
-    <from>
+    <form>
         <fieldset>
             <label>이름</label>
             <input type="text">
         </fieldset>
-    </from>
-
-    <fieldset>
-        <label>아이디(4자 이상)</label>
-        <input type="text" id="username">
-        <div class="failure-message hide">아이디는 네 글자 이상이어야 합니다</div>
-        <div class="success-message hide">사용할 수 있는 아이디입니다</div>
-    </fieldset>
 
         <fieldset>
-        <label>비밀번호</label>
-        <input type="password" id="password">
-        <div class="style0">* 비밀번호는 문자, 숫자, 특수문자로 구성하여 입력하세요 *</div>
-    </fieldset>
+            <label>아이디(4자 이상)</label>
+            <input type="text" id="username">
+            <div class="failure-message hide">아이디는 네 글자 이상이어야 합니다</div>
+            <div class="success-message hide">사용할 수 있는 아이디입니다</div>
+        </fieldset>
 
-    <fieldset>
-        <label>비밀번호 확인</label>
-        <input type="text" id="phonenumber">
-        <div class="style1"> * 전화번호는 "-"를 제외한 숫자만 입력하세요 * </div>
-        <div class="minsnumber-message hide">숫자를 입력해주세요</div>
-    </fieldset>
+        <fieldset>
+            <label>비밀번호</label>
+            <input type="password" id="password">
+            <div class="style0">* 비밀번호는 문자, 숫자, 특수문자로 구성하여 입력하세요 *</div>
+        </fieldset>
 
-    <fieldset>
-        <button id="joinbutton">회원가입</button>
-    </fieldset>
+        <fieldset>
+            <label>비밀번호 확인</label>
+            <input type="text" id="phonenumber">
+            <div class="style1"> * 전화번호는 "-"를 제외한 숫자만 입력하세요 * </div>
+            <div class="minsnumber-message hide">숫자를 입력해주세요</div>
+        </fieldset>
+
+        <fieldset>
+            <button id="joinbutton">회원가입</button>
+        </fieldset>
 </form>
 
+<div class="sidebar">
+    <ul>
+        <li><a href="read">가계부 목록</a></li>
+            <li><a href="write">가계부 쓰기</a></li>
+        <li><a href="https://search.shopping.naver.com/search/all?query=%EA%B0%80%EA%B3%84%EB%B6%80&cat_id=&frm=NVSHATC">가계부 구입</a></li>
+        <li><a href="http://127.0.0.1:8000/">메인화면</a></li>
+    </ul>
+</div>
+
     <script src="{% static 'js/signup.js' %}"></script>
+<script>
+let elInputUsername = document.querySelector('#username')
+let elInputPassword = document.querySelector('#password')
+let elInputPasswordretype = document.querySelector('#password-retype')
+let elNumbertype = document.querySelector('#phonenumber')
+let elJoinbutton = document.querySelector('#joinbutton')
+
+let elFailuremessage = document.querySelector('.failure-message')
+let elSuccessmessage = document.querySelector('.success-message')
+let elMismatchmessage = document.querySelector('.mismatch-message')
+let elMatchmessage = document.querySelector('match-message')
+let elMisnumbermessage = document.querySelector('.misnumber-message')
+
+elJoinbutton.disabled = true;
+
+elInputUsername.onkeyup = function () {
+    if (isMoreThan4Length(elInputUsername.value)){
+        elSuccessmessage.classList.remove('hide')
+        elFailuremessage.classList.add('hide')
+    }
+    else{
+        elSuccessmessage.classList.add('hide')
+        elFailuremessage.classList.remove('hide')
+    }
+}
+
+function isMoreThan4Length(value){
+    return value.length >= 4
+}
+
+elInputPassword.onkeyup = function () {
+    if (isMatch(elInputPasswordretype.value)){
+        elMatchmessage.classList.add('hide')
+        elMatchmessage.classList.remove('hide')
+    }
+    else{
+        elMismatchmessage.classList.remove('hide')
+        elMatchmessage.classList.add('hide')
+    }
+}
+
+function isMatch (password1, password2){
+    if (password1 === password2) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+elNumbertype.onkeyup = function () {
+    if (isNumbermatch(elNumbertype.value)) {
+        elMisnumbermessage.classList.add('hide')
+    }
+    else {
+        elMisnumbermessage.classList.remove('hide')
+    }
+}
+
+function isNumbermatch(value) {
+    let phonenumber = /^[0-9]*$/
+    if( phonenumber.test(value) === true) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+elInputUsername.addEventListener('keyup', button)
+elInputPassword.addEventListener('keyup', button)
+elInputPasswordretype.addEventListener('keyup', button)
+elNumbertype.addEventListener('keyup', button)
+
+function button() {
+    switch (!(elInputUsername.value && elInputPassword.value && elInputPasswordretype.value && elNumbertype.value
+        && elInputPassword.value === elInputPasswordretype.value)) {
+            case true : elJoinbutton.disabled = true; break;
+            case false : elJoinbutton.disabled = false; break;
+        }
+}
+    </script>
 </body>
 </html>
