@@ -1,6 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>백엔드 회원가입</title>
+</head>
+<body>
+    <div class="header">
+        
+    </div>
+
+</html>
 <h1>회원가입</h1>
 <form method = "POST" action="{% url 'signup' %}">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">가입</button>
 </form>
+<footer></footer>
+</body>
+</html>
