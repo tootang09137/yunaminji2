@@ -1,0 +1,19 @@
+.hide{
+    display: none;
+}
+
+.failure-message,
+.mismatch-message,
+.misnumber-message {
+    color: red;
+}
+
+.success-message,
+.match-message{
+    color: blue;
+}
+
+.style0,
+.style1{
+    color: grey;
+}
