@@ -7,15 +7,50 @@
     <title>백엔드 회원가입</title>
     <link href="{% static 'css/signup.css' %}" rel="stylesheet">
     <style>
-        .header {
+@font-face {
+    font-family: 'HoengseongHanu';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202@1.0/HoengseongHanu.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+form{
+    margin: 2em;
+}
+
+html,body{
+    margin: 0;
+    display:column;
+    overflow: hidden;
+}
+
+.sidebar{
+    font-family: 'HoengseongHanu';
+    background: black;
+    width: 10%;
+    height: 200px; 
+    position: sticky;
+    top: 0;
+    float: right;
+    font-size: 12px;
+    text-align: center;
+    padding-top:10px;
+}
+
+a{
+    text-decoration:none;
+    color: white;
+}
+
+.header {
     height: 80px;
     background:rgb(255,203,203);
     text-align: center;
-    position: fixed;
     width: 100%;
-    z-index:-2;
-    padding: 0;
+}
+div{
     margin: 0;
+    padding: 0;
 }
 
 footer {
@@ -23,23 +58,77 @@ footer {
     height: 200px;
     margin: 0;
     padding: 0;
-    z-index: -1;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
-    </style>
+
+html, body, div, span,  h1, h2, em, img, 
+ul, li,
+footer, header, menu, mark {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+body {
+    line-height:150%;
+}
+ol, ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+ul{
+    list-style:none;
+}
+
+h2{
+    text-align:center;
+    font-size:35px;
+    padding: 10px;
+    padding-top: 20px;
+}
+
+button{
+    background-color: darkgrey;
+    color: white;
+    margin-bottom: 5px;
+    border: 0;
+    outline: 0cm;
+    margin-left: 10px;
+    width: 8%;
+    height: 1.7em;
+    font-weight: bold;
+}
+
+input:focus {outline: none !important; border-color:pink; box-shadow: 0 0 10px violet;}
+
+ </style>
 </head>
 <body>
     <div class="header">
-
+        <h2>회원가입</h2>
     </div>
-
-</html>
-<h1>회원가입</h1>
+    <div class="sidebar">
+        <ul>
+            <li><a href="read">가계부 목록</a></li>
+                <li><a href="write">가계부 쓰기</a></li>
+            <li><a href="https://search.shopping.naver.com/search/all?query=%EA%B0%80%EA%B3%84%EB%B6%80&cat_id=&frm=NVSHATC">가계부 구입</a></li>
+            <li><a href="http://127.0.0.1:8000/">메인화면</a></li>
+        </ul>
+    </div>
 <form method = "POST" action="{% url 'signup' %}">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">가입</button>
 </form>
-
-</body>
 <footer></footer>
+</body>
+
 </html>
