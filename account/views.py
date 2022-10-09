@@ -4,6 +4,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from account.forms import CustomUserCreationForm 
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.decorators import login_required
 
 from .forms import CustomUser, CustomUserChangeForm
 # Create your views here.
@@ -78,3 +79,7 @@ def user_change(request):
 
 def signup_yuna(request):
     return render(request, 'accout/signup_yuna.html')
+
+@login_required
+def profile(request):
+    return render(request, 'profile.html')

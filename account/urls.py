@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 import account.views
 from cashbookapp.models import Cashbook
+from .views import CustomUser
 
 urlpatterns = [
     path('signup/',account.views.signup, name= 'signup'),
@@ -13,5 +14,6 @@ urlpatterns = [
     path('mypage/<str:id>',account.views.mypage, name='mypage'),
     path('user_change/', account.views.user_change, name='user_change'),
     path('signup_yuna/', account.views.signup_yuna, name='signup_yuna'),
+    path('profile/', account.views.profile, name='users-profile'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
