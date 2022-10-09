@@ -145,7 +145,7 @@ let elJoinbutton = document.querySelector('#joinbutton')
 let elFailuremessage = document.querySelector('.failure-message')
 let elSuccessmessage = document.querySelector('.success-message')
 let elMismatchmessage = document.querySelector('.mismatch-message')
-let elMatchmessage = document.querySelector('match-message')
+let elMatchmessage = document.querySelector('.match-message')
 let elMisnumbermessage = document.querySelector('.misnumber-message')
 
 elJoinbutton.disabled = true;
@@ -176,7 +176,7 @@ elInputPassword.onkeyup = function () {
     }
 }
 
-function isMatch (password1, password2){
+function isMatch (password1, password2) {
     if (password1 === password2) {
         return true;
     }
