@@ -161,13 +161,13 @@ elInputUsername.onkeyup = function () {
     }
 }
 
-function isMoreThan4Length(value){
+function isMoreThan4Length(value) {
     return value.length >= 4
 }
 
-elInputPassword.onkeyup = function () {
+elInputPasswordretype.onkeyup = function () {
     if (isMatch(elInputPassword.value, elInputPasswordretype.value)){
-        elMatchmessage.classList.add('hide')
+        elMismatchmessage.classList.add('hide')
         elMatchmessage.classList.remove('hide')
     }
     else{
