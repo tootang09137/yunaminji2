@@ -12,6 +12,6 @@ urlpatterns = [
     path('change_password/', views.change_password, name='change_password'),
     path('mypage/<str:id>',account.views.mypage, name='mypage'),
     path('user_change/', account.views.user_change, name='user_change'),
-    path('signup_yuna/', account.views.signup_yuna, name=''),
+    path('signup_yuna/', account.views.signup_yuna, name='signup_yuna'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

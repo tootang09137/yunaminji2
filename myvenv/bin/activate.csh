@@ -8,11 +8,7 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 # Unset irrelevant variables.
 deactivate nondestructive
 
-<<<<<<< HEAD
 setenv VIRTUAL_ENV "/Users/yuna/Desktop/살려주세요/10-82/myvenv"
-=======
-setenv VIRTUAL_ENV "/Users/yuna/Desktop/멋사과제_최종/10-8/myvenv"
->>>>>>> remotes/origin/main
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/bin:$PATH"

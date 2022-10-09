@@ -38,11 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-<<<<<<< HEAD
 VIRTUAL_ENV="/Users/yuna/Desktop/살려주세요/10-82/myvenv"
-=======
-VIRTUAL_ENV="/Users/yuna/Desktop/멋사과제_최종/10-8/myvenv"
->>>>>>> remotes/origin/main
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

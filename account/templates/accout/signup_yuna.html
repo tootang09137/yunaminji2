@@ -3,11 +3,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-   <link rel="stylesheet" href= "{% static 'account/static/css/signup.css' %}">
-    <meta charset="UTF-8">
-    <title>프론트엔드 회원가입</title>
-    <style>
-        .hide{
+   <link rel="stylesheet" href= "{% static 'css/signup_yuna.css' %}">
+   <style>
+    .hide{
     display: none;
 }
 
@@ -83,7 +81,9 @@ div{
     margin: 0;
     padding:0;
 }
-    </style>
+   </style>
+    <meta charset="UTF-8">
+    <title>프론트엔드 회원가입</title>
 </head>
 <body>
     <h1>회원가입</h1>
@@ -134,9 +134,9 @@ div{
     </ul>
 </div>
 
-    <script src="{% static 'js/signup.js' %}"></script>
-<script>
-let elInputUsername = document.querySelector('#username')
+    <script src="{% static 'js/signup_yuna.js' %}"></script>
+    <script>
+        let elInputUsername = document.querySelector('#username')
 let elInputPassword = document.querySelector('#password')
 let elInputPasswordretype = document.querySelector('#password-retype')
 let elNumbertype = document.querySelector('#phonenumber')
