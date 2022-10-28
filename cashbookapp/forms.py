@@ -1,6 +1,6 @@
 from xml.dom import ValidationErr
 from django import forms
-from .models import Cashbook
+from .models import Cashbook, Comment
 from django.core.exceptions import ValidationError
 
 class CashbookForm(forms.ModelForm):
@@ -14,5 +14,10 @@ class CashbookForm(forms.ModelForm):
         instance = getattr(self, 'instance', None)
         if instance and instance.pk:
             self.fields['content'].widget.attrs['readonly'] = True
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['text']
 
 
