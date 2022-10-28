@@ -75,3 +75,8 @@ def update_comment(request, id, com_id):
             update_form.save()
             return redirect('detail', id)
     return render(request, 'update_comment.html', {'form':form, 'post':post, 'comment':comment})
+
+def delete_comment(request, post_id, com_id):
+    mycom = Comment.objects.get(id=com_id)
+    mycom.delete()
+    return redirect('detail', post_id)
