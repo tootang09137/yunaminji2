@@ -1,3 +1,4 @@
+from pickle import TRUE
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CashbookForm, CommentForm
 from django.utils import timezone
@@ -5,6 +6,12 @@ from .models import Cashbook, Comment
 from django.contrib.auth.forms import AuthenticationForm
 from account.models import CustomUser
 from django.contrib.auth import authenticate
+import json
+from django.http import HttpResponse
+from django.core import serializers
+from django.core.serializers.json import DjangoJSONEncoder
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 def main(request):
@@ -32,6 +39,7 @@ def read(request):
     cashbooks = Cashbook.objects
     return render(request, 'read.html', {'cashbooks':cashbooks})
 
+@login_required
 def detail(request, id):
     cashbooks = get_object_or_404(Cashbook, id=id)
     if request.method == "POST":
@@ -39,6 +47,7 @@ def detail(request, id):
         if form.is_valid():
             comment = form.save(commit = False)
             comment.cashbook_id = cashbooks
+            comment.comment_writer = request.user
             comment.text = form.cleaned_data['text']
             comment.save()
             id=id

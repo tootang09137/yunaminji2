@@ -29,6 +29,5 @@ urlpatterns =[
     path('delete/<str:id>/', cashbookapp.views.delete, name='delete'),
     path('update_comment/<str:id>/<str:com_id>/', cashbookapp.views.update_comment, name='update_comment'),
     path('cashbookapp/delete_comment/<int:post_id>/<int:com_id>', cashbookapp.views.delete_comment, name='delete_comment'),
-
     path('',include('account.urls')),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

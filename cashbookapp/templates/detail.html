@@ -10,9 +10,15 @@
     <div class="col-lg-10">
     <h2>Detail</h2>
     <h3>제목: {{cashbooks.title}}</h3>
+    <h3>작성자: {{cashbooks.writer}}</h3>
     <p>작성일: {{cashbooks.pub_date}}</p>
     <p>지출내역: {{cashbooks.content}}</p>
     <p>지출내역: {{cashbooks.detail}}</p>
+    <form method="POST" action="{% url 'detail' cashbooks.id %}">
+        {% csrf_token %} 
+        <p>{{ form.as_p}}</p>
+        <input type="submit" value="submit">
+    </form>
     {% if cashbooks.image %} 
         <image src="{{ cashbooks.image.url }}" width ="250" height = "250" alt = "image">
     {% endif %} 
@@ -22,18 +28,22 @@
     <br>
     <br>
     {% for comment in cashbooks.comments.all %}
-        <p>{{ comment.text }}</p>
+        {% if comment.comment_writer != cashbooks.writer %}
+        {{comment.comment_writer}}:{{comment.text}}
         <a href="{% url 'update_comment' cashbooks.id comment.id %}">수정</a>
         <a href="{% url 'delete_comment' cashbooks.id comment.id %}">삭제</a>
-        {% endfor %}
         
+        {% else %}
+       
+        <strong>{{ comment.comment_writer }}&nbsp;<span>(글쓴이)</span>:{{ comment.text }}</strong>
+        <a href="{% url 'update_comment' cashbooks.id comment.id %}">수정</a>
+        <a href="{% url 'delete_comment' cashbooks.id comment.id %}">삭제</a>
+        {% endif %}
+       {% endfor %}
+      
 
         
-        <form method="POST" action="{% url 'detail' cashbooks.id %}">
-            {% csrf_token %} 
-            <p>{{ form.as_p}}</p>
-            <input type="submit" value="submit">
-        </form>
+
 </div>
 </body>
 </html>
