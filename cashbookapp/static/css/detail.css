@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-a{
-    text-decoration: none;
-}
-
 .modal-background{
     position: fixed;
     background-color: palevioletred;
@@ -14,6 +10,11 @@ a{
     height: 100%;
     width: 100%;
     display: none;
+    line-height: 150%;
+    text-align:center;
+    border: dotted 2px white;
+    box-shadow:2px 3px 5px 0px hotpink;
+   
 }
 
 .modal-editpage {
@@ -28,42 +29,32 @@ a{
     padding: 2rem;
     box-shadow: 0 0 1rem black;
     text-align: center;
+    border: dotted 1px white;
 }
 
 .btn-close{
     position:absolute;
     top: 1rem;
     right: 1rem;
+    font-size:2em;
+    color: white;
+    text-shadow: hotpink 1px 0 10px;
 }
 
-.btn-submit{
-    background-color:rosybrown;
-    color: black;
-    border-radius: 1rem;
-    font-size: 1rem;
-    padding: 0.5rem;
-    display: block;
-    margin: 1em auto;
-}
 
 .modal-background.active{
     display: block;
+    width:50%;
+    height:70%;
+
 }
 
-input:focus,
-textarea:focus{
-    background-color:#F9FFFF;
-}
-
-input[type=text]{
-    width: 15rem;
-    height: 1.5rem;
-    font-size: 1rem;
-    margin-top: 1rem;
-}
-
-textarea {
-    width: 15rem;
-    height: 5rem;
-    margin-top: 1rem;
+#modal-active{
+    display:table;
+    margin: 0 auto;
+    position:relative;
+    top: 1.5em;
+    font-size: 3em;
+    font-weight:bold;
+    font-family: 'HoengseongHanu';
 }
