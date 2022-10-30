@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/detail.css' %}" rel="stylesheet">
     <title>나만의 가계부 만들기</title>
 </head>
 <body>
@@ -17,7 +19,7 @@
     <form method="POST" action="{% url 'detail' cashbooks.id %}">
         {% csrf_token %} 
         <p>{{ form.as_p}}</p>
-        <input type="submit" value="submit">
+        <input type="submit" value="submit" id="modal-active">
     </form>
     {% if cashbooks.image %} 
         <image src="{{ cashbooks.image.url }}" width ="250" height = "250" alt = "image">
@@ -27,23 +29,26 @@
     <a href="{%url 'delete' cashbooks.id %}">삭제하기</a>
     <br>
     <br>
-    {% for comment in cashbooks.comments.all %}
-        {% if comment.comment_writer != cashbooks.writer %}
-        {{comment.comment_writer}}:{{comment.text}}
-        <a href="{% url 'update_comment' cashbooks.id comment.id %}">수정</a>
-        <a href="{% url 'delete_comment' cashbooks.id comment.id %}">삭제</a>
-        
+            {% for comment in cashbooks.comments.all %}
+            {% if comment.comment_writer != cashbooks.writer %}
+            {{comment.comment_writer}}:{{comment.text}}
+            <button id="modal-active"><a href="{% url 'update_comment' cashbooks.id comment.id %}">수정</a></button>
+            <a href="{% url 'delete_comment' cashbooks.id comment.id %}">삭제</a>
         {% else %}
        
-        <strong>{{ comment.comment_writer }}&nbsp;<span>(글쓴이)</span>:{{ comment.text }}</strong>
-        <a href="{% url 'update_comment' cashbooks.id comment.id %}">수정</a>
-        <a href="{% url 'delete_comment' cashbooks.id comment.id %}">삭제</a>
-        {% endif %}
-       {% endfor %}
+        
+            <strong>{{ comment.comment_writer }}&nbsp;<span>(글쓴이)</span>:{{ comment.text }}</strong>
+            <a href="{% url 'update_comment' cashbooks.id comment.id %}">수정</a>
+            <a class="btn-close" id="modal-close" href="">𝙭</a>
+            <a href="{% url 'delete_comment' cashbooks.id comment.id %}">삭제</a>
+            {% endif %}
+            {% endfor %}
+    </div>
       
 
         
 
 </div>
 </body>
+<script src="{% static 'js/detail.js' %}"></script>
 </html>

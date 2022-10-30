@@ -1,0 +1,69 @@
+*{
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+.modal-background{
+    position: fixed;
+    background-color: palevioletred;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+.modal-editpage {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: pink;
+    width: 30rem;
+    height: 25rem;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: 0 0 1rem black;
+    text-align: center;
+}
+
+.btn-close{
+    position:absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.btn-submit{
+    background-color:rosybrown;
+    color: black;
+    border-radius: 1rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    display: block;
+    margin: 1em auto;
+}
+
+.modal-background.active{
+    display: block;
+}
+
+input:focus,
+textarea:focus{
+    background-color:#F9FFFF;
+}
+
+input[type=text]{
+    width: 15rem;
+    height: 1.5rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+textarea {
+    width: 15rem;
+    height: 5rem;
+    margin-top: 1rem;
+}

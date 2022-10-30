@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-#!/Users/yuna/Desktop/살려주세요/10-82/myvenv/bin/python3.11
-=======
-#!/Users/yuna/Desktop/멋사과제_최종/10-8/myvenv/bin/python3.11
->>>>>>> remotes/origin/main
+#!/bin/sh
+'''exec' "/Users/yuna/Desktop/과제를 시작하지/comment/myvenv/bin/python3.11" "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys
