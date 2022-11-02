@@ -1,12 +1,12 @@
 from xml.dom import ValidationErr
 from django import forms
-from .models import Cashbook, Comment
+from .models import Cashbook, Comment, Hashtag
 from django.core.exceptions import ValidationError
 
 class CashbookForm(forms.ModelForm):
     class Meta:
         model = Cashbook
-        fields = ['title', 'content', 'detail', 'image', 'writer']
+        fields = ['title', 'content', 'detail', 'image', 'writer', 'hashtags']
 
     def __init__(self, *args, **kwargs):
         super(CashbookForm, self).__init__(*args, **kwargs)
@@ -20,7 +20,10 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['text']
 
-
+class HashtagForm(forms.ModelForm):
+    class Meta:
+        model = Hashtag
+        fields = ['name']
 
     
 

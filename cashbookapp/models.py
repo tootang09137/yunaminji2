@@ -6,6 +6,7 @@ from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.conf import settings
+from account.models import CustomUser
 
 
 # Create your models here.
@@ -18,7 +19,9 @@ class Cashbook(models.Model):
     image = models.ImageField(upload_to = 'images/', blank =True, default='')
     likes = models.PositiveIntegerField(default=0, verbose_name='추천수')
     clicks = models.PositiveIntegerField(default=0, verbose_name='조회수') 
-
+    hashtags = models.ManyToManyField('Hashtag', blank = True)
+    post_like = models.ManyToManyField(CustomUser, related_name='like_users', blank=True)
+    like_count = models.PositiveIntegerField(default=0)
     def __str__(self):
         return self.title
 
@@ -47,3 +50,8 @@ class Comment(models.Model):
     cashbook_id = models.ForeignKey(Cashbook, on_delete=models.CASCADE, related_name='comments', null=True)
     text = models.CharField(max_length=50)
 
+class Hashtag(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name

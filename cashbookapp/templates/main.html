@@ -20,6 +20,7 @@
                         <li><a href="read">가계부 목록</a></li>
                         {% if user.is_authenticated %} 
                         <li><a href="write">가계부 쓰기</a></li>
+                        <a href ="{% url 'hashtag' %}">hashtag</a>
                         <li><a href="{% url 'logout' %}">로그아웃</a></li>
                         <li><a href="{% url 'mypage' user.id %}">마이페이지</a></li>
                         <li><a href="{% url 'change_password' %}">비밀번호 변경</a></li>

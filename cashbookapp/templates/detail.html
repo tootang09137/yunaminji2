@@ -42,6 +42,17 @@
             <a href="{% url 'delete_comment' cashbooks.id comment.id %}">삭제</a>
             {% endif %}
             {% endfor %}
+    <br>
+    <br>
+    {% for hashtag in cashbooks.hashtags.all %} 
+        <span> {{ hashtag.name }} </span>
+    {% endfor %} 
+    <br>
+    <br>
+    <!-- 좋아요를 표시-->
+    <a href="{% url 'likes' cashbooks.id %}">
+        좋아요: {{cashbooks.like_count }}
+    </a>
     </div>
       
 
