@@ -6,11 +6,11 @@
     <title>멋사 과제입니당</title>
     <link href="{% static 'css/wow.css' %}" rel="stylesheet">
     <link href="{% static 'css/detail.css' %}" rel="stylesheet">
+    <link href="{% static 'css/time.css' %}" rel="stylesheet">
 </head>
 <body>
     <div class="sidebar">
         <ul>
-
             <!--이 곳에 모달창을 만들었습니다.-->
             <button id="modal-active">nav</button>
             <div id="modal-notice" class="modal-background">
@@ -27,8 +27,8 @@
                 
                         {% else %} 
                         <scrips type="text/javascript">
-                        alert('먼저 로그인을 해주세요.');
-                        window.location.href='{%url "login" %}';
+                        <p>alert('먼저 로그인을 해주세요.');
+                        window.location.href='{%url "login" %}';</p>
                         <li><a href="{% url 'login' %}">로그인</a></li>
                     
                          <li><a href="{% url 'signup' %}">회원가입</a></li>
@@ -41,8 +41,12 @@
     </div>
     <div class="header">
         <h1>🌹🌷가계부🌹🌷</h1>
+        <div class="timetimetime">
+            <div class="time_time">
+                <h1 id="time"></h1>
+            </div>
     </div>
-
+        </div>
         <div class="soge0">
             <div class="skhu2">
                 <img id= "first_img" src="https://blog.toss.im/wp-content/uploads/2018/07/2-180712.png">
@@ -101,7 +105,8 @@
                 </ul>
             </div>
         </div>
-    </div>    
+    </div>
+<script src="{% static 'js/time.js' %}"></script>
 <script src="{% static 'js/hi.js' %}"></script>
 <script src="{% static 'js/detail.js' %}"></script>
 </body>

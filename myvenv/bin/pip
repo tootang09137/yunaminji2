@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/yuna/Desktop/과제를 시작하지/comment/myvenv/bin/python3.11" "$0" "$@"
+'''exec' "/Users/yuna/Desktop/11월 첫째주 멋사과재/comment4/myvenv/bin/python3.11" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re

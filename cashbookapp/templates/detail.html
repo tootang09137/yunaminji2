@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{% static 'css/detail.css' %}" rel="stylesheet">
+    <link href="{% static 'css/likes.css' %}" rel="stylesheet">
+
     <title>나만의 가계부 만들기</title>
 </head>
 <body>
@@ -50,15 +52,21 @@
     <br>
     <br>
     <!-- 좋아요를 표시-->
-    <a href="{% url 'likes' cashbooks.id %}">
-        좋아요: {{cashbooks.like_count }}
-    </a>
-    </div>
-      
-
+    <div class="heart">
+        <p class="like">
+        {% if user in cashbooks.like.all %}
+        취소
+        {% else %}
+        {{ cashbooks.like_count }}
+        {% endif %}
+        </p>
+</div>
+<div class="animation-heart">
+</div>
         
 
 </div>
 </body>
 <script src="{% static 'js/detail.js' %}"></script>
+<script src="{% static 'js/heart.js' %}"></script>
 </html>
