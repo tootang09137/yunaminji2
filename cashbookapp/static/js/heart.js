@@ -9,5 +9,5 @@ heart.addEventListener('click', () => {
 animatioHeart.addEventListener('click', () =>
 {
     animatioHeart.classList.remove('animation-heart');
-    heart.classList.remove('fill-color');
+    heart.classList.remove('heart');
 });

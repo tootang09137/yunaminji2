@@ -15,7 +15,7 @@
     position: absolute;
     height: 40px;
     width: 40px;
-    background: #c9c9c9;
+    background: red;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -26,7 +26,7 @@
   
   
   .heart.fill-color{
-    background-color: #c9c9c9;
+    background-color: red;
   }
   
    
@@ -59,11 +59,10 @@
     align-items:center;
     width:40px;
     height:40px;
-    background:red;
+    background:#c9c9c9;
     transform: rotate(-45deg);
     border-radius: 0 0 0 10px;
     cursor: pointer;
-    animation: popup .8s linear;
   }
 
   .animation-heart::after{
@@ -78,7 +77,6 @@
 }
 
 .animation-heart.animation{
-  animation: popup .5s linear;
   visibility:visible;
 }
 
@@ -92,11 +90,4 @@
     background: inherit;
     border-radius: 50%;
 
-}
-
-@keyframes popup {
-    100%{
-        transform:scale(1.5) rotate(-45deg);
-        opacity: 0;
-    }
 }
