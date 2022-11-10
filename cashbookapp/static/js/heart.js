@@ -1,5 +1,3 @@
-
-
 const heart = document.querySelector(".heart");
 const animatioHeart = document.querySelector(".animation-heart");
 

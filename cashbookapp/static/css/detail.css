@@ -57,3 +57,15 @@
     font-weight:bold;
     font-family: 'HoengseongHanu';
 }
+
+#submitsubmit{
+    display:table;
+    margin: 0 auto;
+    position:relative;
+    top: 1.5em;
+    font-size: 1em;
+    font-weight:bold;
+    font-family: 'HoengseongHanu';
+   
+    
+}
