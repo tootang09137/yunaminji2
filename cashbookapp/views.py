@@ -37,8 +37,12 @@ def write(request, cashbook = None):
         return render(request, 'write.html', {'form':form})
              
 def read(request):
-    cashbooks = Cashbook.objects
-    return render(request, 'read.html', {'cashbooks':cashbooks})
+    sort = request.GET.get('sort', '')
+    if sort == 'date':
+        cashbooks = Cashbook.objects.all().order_by('-pub_date')
+    else:
+        cashbooks = Cashbook.objects.all().order_by('-like_count')
+    return render(request, 'read.html', {'cashbooks':cashbooks, 'sort':sort})
 
 @login_required
 def detail(request, id):
