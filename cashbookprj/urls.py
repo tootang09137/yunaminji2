@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 import cashbookapp.views
+import payment.views
 from django.conf import settings
 from django.urls import path,include
 from django.conf.urls.static import static
@@ -32,4 +33,7 @@ urlpatterns =[
     path('hashtag/', cashbookapp.views.hashtag, name='hashtag'),
     path('like/<str:id>/', cashbookapp.views.likes, name="likes"), #좋아요 url
     path('',include('account.urls')),
+    path('window', payment.views.window),
+    path('success', payment.views.success),
+    path('fail', payment.views.fail),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

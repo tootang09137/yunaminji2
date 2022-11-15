@@ -8,6 +8,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta charset="UTF-8">
     <title>멋사 과제입니당</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie_edge" />
+    <meta name="viewport" content="width-device-width, initial-scale-1, shrink-to-fit-no" />
+    <script src="https://js.tosspayments.com/v1"></script>
+    
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
     <link href="{% static 'css/detail.css' %}" rel="stylesheet">
     <link href="{% static 'css/time.css' %}" rel="stylesheet">
@@ -15,6 +20,7 @@
 </head>
 
 <body>
+
     <section class="sec">
         <div class="sidebar">
             <ul>
@@ -79,6 +85,12 @@
                 </div>
             </div>
         </div>
+        <h1>결제(일반)</h1>
+    <section>
+        <div>
+            <button onclick="location.href='/window';">결제창</button>
+        </div>
+    </section>
         <hr>
         <div class="soge2">
             <div class="skhu2">
